@@ -49,3 +49,4 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'font-awesome-sass'
 end
+gem 'devise'
