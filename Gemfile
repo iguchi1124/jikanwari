@@ -49,4 +49,8 @@ group :assets do
   gem 'bootstrap-sass'
   gem 'font-awesome-sass'
 end
+
+# Use Sign in system
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'

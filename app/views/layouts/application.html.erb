@@ -31,8 +31,9 @@
   			<li><%= link_to ' アカウント設定', edit_user_registration_path, :class => 'fa fa-gear' %></li>
   			<li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, :class => 'fa fa-sign-out'  %></li>
 		<% else %>
-  			<li><%= link_to ' 新規登録', new_user_registration_path, :class => 'fa fa-users'  %></li>
-  			<li><%= link_to ' ログイン', new_user_session_path, :class => 'fa fa-sign-in'  %></li>
+  			<li><%= link_to ' 新規登録', new_user_registration_path, :class => 'fa fa-users' %></li>
+  			<li><%= link_to ' ログイン', new_user_session_path, :class => 'fa fa-sign-in' %></li>
+  			<li><%= link_to ' ツイッターでログイン',  user_omniauth_authorize_path(:twitter), :class => 'fa fa-twitter' %></li>
 		<% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
