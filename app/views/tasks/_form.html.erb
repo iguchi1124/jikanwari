@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :deadline,"期限" %><br>
-    <%= f.date_select :deadline, :class=> 'form-control'  %>
+    <%= f.date_select :deadline, :use_month_numbers => true, :class=> 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :content,"内容" %><br>
