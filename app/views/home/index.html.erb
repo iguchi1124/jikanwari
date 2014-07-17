@@ -38,7 +38,7 @@
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= task.id %>">
            <%= task.title %>
         </a>
-        <span class="badge pull-right"><%= User.find(task.contributor_id).name %></span>
+        <span class="badge"><%= User.find(task.contributor_id).name %></span>
       </h4>
     </div>
     <div id="collapse<%= task.id %>" class="panel-collapse collapse">
