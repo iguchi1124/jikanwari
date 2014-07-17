@@ -54,3 +54,5 @@ end
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
+
+gem 'i18n'
