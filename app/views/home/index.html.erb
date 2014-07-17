@@ -34,22 +34,23 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <span class="label label-default"><%= task.deadline.strftime('%m/%d') %></span>
+        <span class="label label-default">期限 : <%= task.deadline.strftime('%m/%d') %></span>
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= task.id %>">
            <%= task.title %>
         </a>
-        <span class="badge"><%= User.find(task.contributor_id).name %></span>
-        <%= link_to 'Edit', edit_task_path(task),:class=>'btn btn-success' %>
-        <%= link_to 'Destroy', task, method: :delete, data: { confirm: '削除しますか？' },:class=>'btn btn-danger' %>
+        <span class="badge pull-right"><%= User.find(task.contributor_id).name %></span>
       </h4>
     </div>
     <div id="collapse<%= task.id %>" class="panel-collapse collapse">
       <div class="panel-body">
       	<%= task.content %>
-      	<!-- -->
+      	<div class="btn-group pull-right">
+	        <%= link_to ' Edit ', edit_task_path(task),:class=>'btn btn-success',:type=>'button' %>
+	        <%= link_to 'Delete', task, method: :delete, data: { confirm: '削除しますか？' },:class=>'btn btn-danger',:type=>'button' %>
+        </div>
       </div>
     </div>
   </div>
   <% end %>
 </div>
-<%= link_to 'new tasks!', new_task_path, :class => 'btn btn-primary' %>
+<%= link_to '課題を登録する', new_task_path, :class => 'btn btn-primary' %>
