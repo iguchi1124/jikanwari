@@ -27,7 +27,29 @@
 	<tr>
 		<th>7</th> <td>電気工学実験</td> <td>英語</td> <td>プログラミング</td> <td>特活</td> <td></td>
 	</tr>
-	<tr>
-		<th>放課後</th> <td></td> <td></td> <td></td> <td></td> <td></td>
-	</tr>
 </table>
+
+<div class="panel-group" id="accordion">
+  <% @tasks.each do |task| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <span class="label label-default"><%= task.deadline.strftime('%m/%d') %></span>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= task.id %>">
+           <%= task.title %>
+        </a>
+        <span class="badge"><%= User.find(task.contributor_id).name %></span>
+        <%= link_to 'Edit', edit_task_path(task),:class=>'btn btn-success' %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: '削除しますか？' },:class=>'btn btn-danger' %>
+      </h4>
+    </div>
+    <div id="collapse<%= task.id %>" class="panel-collapse collapse">
+      <div class="panel-body">
+      	<%= task.content %>
+      	<!-- -->
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= link_to 'new tasks!', new_task_path, :class => 'btn btn-primary' %>
